@@ -1,12 +1,20 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import Layout from "../../components/Layout";
 import myContext from "../../context/data/myContext";
 import { Button } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Dashboard() {
   const context = useContext(myContext);
   const { mode } = context;
+
+  const navigate = useNavigate();
+
+  //* Logout Function
+  const logout = () => {
+    localStorage.clear();
+    navigate("/");
+  };
   return (
     <Layout>
       <div className="py-10">
@@ -23,7 +31,7 @@ function Dashboard() {
               className="text-center font-bold text-2xl mb-2"
               style={{ color: mode === "dark" ? "white" : "black" }}
             >
-              Henok Alemu
+              Kamal Nayan Upadhyay
             </h1>
 
             <h2
@@ -36,7 +44,7 @@ function Dashboard() {
               style={{ color: mode === "dark" ? "white" : "black" }}
               className="font-semibold"
             >
-              henok@gmail.com
+              knupadhyay784@gmail.com
             </h2>
             <h2
               style={{ color: mode === "dark" ? "white" : "black" }}
@@ -63,6 +71,7 @@ function Dashboard() {
               </Link>
               <div className="mb-2">
                 <Button
+                  onClick={logout}
                   style={{
                     background:
                       mode === "dark"
@@ -82,7 +91,7 @@ function Dashboard() {
         {/* Line  */}
         <hr
           className={`border-2
-                 ${mode === "dark" ? "border-gray-300" : "border-gray-400"}`}
+                    ${mode === "dark" ? "border-gray-300" : "border-gray-400"}`}
         />
 
         {/* Table  */}
@@ -182,7 +191,7 @@ function Dashboard() {
                       <img
                         className="w-16 rounded-lg"
                         src={
-                          "https://miro.medium.com/v2/resize:fit:522/0*Hdm7hBTZ-hKlbtlV.png"
+                          "https://firebasestorage.googleapis.com/v0/b/blog-fea71.appspot.com/o/blogimage%2FReact%20Introduction.png?alt=media&token=1ba7496b-2cbc-450c-ab1a-57e19882dc76"
                         }
                         alt="thumbnail"
                       />
