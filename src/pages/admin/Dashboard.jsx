@@ -23,7 +23,7 @@ function Dashboard() {
               className="text-center font-bold text-2xl mb-2"
               style={{ color: mode === "dark" ? "white" : "black" }}
             >
-              Kamal Nayan Upadhyay
+              Henok Alemu
             </h1>
 
             <h2
