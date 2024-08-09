@@ -1,11 +1,14 @@
-import React from 'react'
+import BlogPostCard from "../components/BlogPostCard";
+import HeroSection from "../components/HeroSection";
+import Layout from "../components/Layout";
 
-const Home = () => {
+function Home() {
   return (
-    <div>
-      Home
-    </div>
-  )
+    <Layout>
+      <HeroSection />
+      <BlogPostCard />
+    </Layout>
+  );
 }
 
-export default Home
+export default Home;
