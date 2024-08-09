@@ -8,7 +8,6 @@ import {
 } from "@material-tailwind/react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AiOutlineShareAlt, AiOutlineSearch } from "react-icons/ai";
 import myContext from "../context/data/myContext";
 import SearchDialog from "./SearchDialog";
 import ShareDialogBox from "./ShareDialogBox";
