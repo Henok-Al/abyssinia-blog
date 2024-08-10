@@ -86,7 +86,7 @@ export default function Nav() {
                 src="https://cdn-icons-png.flaticon.com/128/3685/3685253.png"
               />
               {/* Logo Text  */}
-              <span>Devknus</span>
+              <span>AbyssiniaBlog</span>
             </Typography>
           </Link>
 
