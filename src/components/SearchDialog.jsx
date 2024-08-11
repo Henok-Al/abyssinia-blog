@@ -2,6 +2,7 @@ import { Fragment, useContext, useState } from "react";
 import { Dialog, DialogBody, Input } from "@material-tailwind/react";
 import myContext from "../context/data/myContext";
 import { AiOutlineSearch } from "react-icons/ai";
+import { useNavigate } from "react-router";
 
 export default function SearchDialog() {
   const [open, setOpen] = useState(false);
@@ -9,7 +10,9 @@ export default function SearchDialog() {
   const handleOpen = () => setOpen(!open);
 
   const context = useContext(myContext);
-  const { mode } = context;
+  const { mode, searchkey, setSearchkey, getAllBlog } = context;
+
+  const naviagte = useNavigate();
   return (
     <Fragment>
       {/* Search Icon  */}
@@ -34,6 +37,8 @@ export default function SearchDialog() {
               color="white"
               type="search"
               label="Type here..."
+              value={searchkey}
+              onChange={(e) => setSearchkey(e.target.value)}
               className=" bg-[#2C3A47]"
               name="searchkey"
               containerProps={{
@@ -44,29 +49,38 @@ export default function SearchDialog() {
 
           {/* Blog Card  */}
           <div className="flex justify-center flex-wrap  sm:mx-auto sm:mb-2 -mx-2  mt-4 mb-2 ">
-            <div className="p-2 sm:w-1/4 w-full ">
-              <div className=" container mx-auto px-4 bg-gray-200 p-2 rounded-lg ">
-                {/* Blog Thumbnail  */}
-                <img
-                  className="w-20 mb-2 rounded-lg"
-                  src={
-                    "https://miro.medium.com/v2/resize:fit:522/0*Hdm7hBTZ-hKlbtlV.png"
-                  }
-                  alt=""
-                />
+            {getAllBlog
+              .filter((obj) =>
+                obj.blogs.title.toLowerCase().includes(searchkey)
+              )
+              .map((item, index) => {
+                return (
+                  <div key={index} className="p-2 sm:w-1/4 w-full ">
+                    <div
+                      onClick={() => naviagte(`/bloginfo/${item.id}`)}
+                      className=" container cursor-pointer mx-auto px-4 bg-gray-200 p-2 rounded-lg "
+                    >
+                      {/* Blog Thumbnail  */}
+                      <img
+                        className="w-20 mb-2 rounded-lg"
+                        src={item.thumbnail}
+                        alt=""
+                      />
 
-                {/* Blog Date  */}
-                <p className="w-40 text-sm">{"date"}</p>
+                      {/* Blog Date  */}
+                      <p className="w-40 text-sm">{item.date}</p>
 
-                {/* Blog Title  */}
-                <h1>{"title"}</h1>
-              </div>
-            </div>
+                      {/* Blog Title  */}
+                      <h1>{item.blogs.title}</h1>
+                    </div>
+                  </div>
+                );
+              })}
           </div>
 
           {/* Heading  */}
           <div className=" text-center">
-            <h1 className=" text-gray-600">Powered By AbyssiniaBlog</h1>
+            <h1 className=" text-gray-600">Powered By Devknus</h1>
           </div>
         </DialogBody>
       </Dialog>
