@@ -1,7 +1,15 @@
 import { useEffect, useState } from "react";
 import MyContext from "./myContext";
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  orderBy,
+  query,
+} from "firebase/firestore";
 import { fireDB } from "../../firebase/FirebaseConfig";
+import toast from "react-hot-toast";
 
 function MyState(props) {
   const [mode, setMode] = useState("light"); // Whether dark mode is enabled or not
@@ -49,6 +57,17 @@ function MyState(props) {
   useEffect(() => {
     getAllBlogs();
   }, []);
+
+  // Blog Delete Function
+  const deleteBlogs = async (id) => {
+    try {
+      await deleteDoc(doc(fireDB, "blogPost", id));
+      getAllBlogs();
+      toast.success("Blogs deleted successfully");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <MyContext.Provider
       value={{
@@ -59,6 +78,7 @@ function MyState(props) {
         loading,
         setloading,
         getAllBlog,
+        deleteBlogs,
       }}
     >
       {props.children}
