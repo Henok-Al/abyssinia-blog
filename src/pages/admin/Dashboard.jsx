@@ -4,6 +4,7 @@ import myContext from "../../context/data/myContext";
 import { Button } from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
 
+//get all blogs
 function Dashboard() {
   const context = useContext(myContext);
   const { mode, getAllBlog, deleteBlogs } = context;
