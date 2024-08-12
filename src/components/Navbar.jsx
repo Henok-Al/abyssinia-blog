@@ -29,10 +29,10 @@ export default function Nav() {
         variant="small"
         color="blue-gray"
         className="p-1 font-normal"
-        style={{ color: mode === "dark" ? "white" : "white" }}
+        style={{ color: mode === "dark" ? "white" : "black" }}
       >
-        <Link to={"/"} className="flex items-center">
-          Home
+        <Link to={"/"} className="flex items-center text-md">
+          HOME
         </Link>
       </Typography>
       <Typography
@@ -40,10 +40,10 @@ export default function Nav() {
         variant="small"
         color="blue-gray"
         className="p-1 font-normal"
-        style={{ color: mode === "dark" ? "white" : "white" }}
+        style={{ color: mode === "dark" ? "white" : "black" }}
       >
-        <Link to={"/allblogs"} className="flex items-center">
-          Blogs
+        <Link to={"/allblogs"} className="flex items-center text-md">
+          BLOGS
         </Link>
       </Typography>
       {!admin ? (
@@ -52,10 +52,10 @@ export default function Nav() {
           variant="small"
           color="blue-gray"
           className="p-1 font-normal"
-          style={{ color: mode === "dark" ? "white" : "white" }}
+          style={{ color: mode === "dark" ? "white" : "black" }}
         >
           <Link to={"/adminlogin"} className="flex items-center">
-            Admin Login
+            {/* Admin Login */}
           </Link>
         </Typography>
       ) : (
@@ -69,7 +69,7 @@ export default function Nav() {
       {/* Navbar  */}
       <Navbar
         className="sticky inset-0 z-20 h-max max-w-full border-none rounded-none py-2 px-4 lg:px-8 lg:py-2"
-        style={{ background: mode === "dark" ? "rgb(30, 41, 59)" : "#30336b" }}
+        style={{ background: mode === "dark" ? "rgb(30, 41, 59)" : "#ffffff" }}
       >
         {/* Desktop View  */}
         <div className="flex items-center justify-between text-blue-gray-900">
@@ -78,15 +78,22 @@ export default function Nav() {
             <Typography
               as="a"
               className="mr-4 cursor-pointer py-1.5 text-xl font-bold flex gap-2 items-center"
-              style={{ color: mode === "dark" ? "white" : "white" }}
+              style={{ color: mode === "dark" ? "white" : "black" }}
             >
               {/* Logo Image  */}
-              <img
+              {/* <img
                 className=" w-10 h-10 "
                 src="https://cdn-icons-png.flaticon.com/128/3685/3685253.png"
-              />
+              /> */}
               {/* Logo Text  */}
-              <span>AbyssiniaBlog</span>
+              <a href="/" className="flex items-center space-x-2">
+                <span
+                  className="text-2xl font-bold text-gray-800"
+                  style={{ color: mode === "dark" ? "white" : "black" }}
+                >
+                  Abyssinia<span className="text-orange-500">Blog</span>
+                </span>
+              </a>
             </Typography>
           </Link>
 
@@ -111,7 +118,7 @@ export default function Nav() {
             <div>
               <Link to={"/dashboard"}>
                 <div className="">
-                  <Avatar
+                  {/* <Avatar
                     key={1}
                     src={
                       "https://cdn-icons-png.flaticon.com/128/3135/3135715.png"
@@ -125,7 +132,7 @@ export default function Nav() {
                           ? "2px solid rgb(226, 232, 240)"
                           : "2px solid rgb(30, 41, 59)",
                     }}
-                  />
+                  /> */}
                 </div>
               </Link>
             </div>

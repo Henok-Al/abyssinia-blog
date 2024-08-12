@@ -17,7 +17,11 @@ export default function SearchDialog() {
     <Fragment>
       {/* Search Icon  */}
       <div onClick={handleOpen}>
-        <AiOutlineSearch size={20} color="white" />
+        <AiOutlineSearch
+          size={20}
+          color="white"
+          style={{ color: mode === "dark" ? "white" : "black" }}
+        />
       </div>
       {/* Dialog  */}
       <Dialog
@@ -25,7 +29,7 @@ export default function SearchDialog() {
         open={open}
         handler={handleOpen}
         style={{
-          background: mode === "light" ? "#2f3542" : "#2f3542",
+          background: mode === "light" ? "#ffffff" : "#2f3542",
           color: mode === "dark" ? "white" : "black",
         }}
       >
@@ -34,16 +38,17 @@ export default function SearchDialog() {
           <div className="flex w-full   justify-center">
             {/* Input  */}
             <Input
-              color="white"
+              color="black"
               type="search"
               label="Type here..."
               value={searchkey}
               onChange={(e) => setSearchkey(e.target.value)}
-              className=" bg-[#2C3A47]"
+              // className=" bg-[#2C3A47]"
               name="searchkey"
               containerProps={{
                 className: "min-w-[288px]",
               }}
+              style={{ color: mode === "dark" ? "white" : "black" }}
             />
           </div>
 
@@ -80,7 +85,7 @@ export default function SearchDialog() {
 
           {/* Heading  */}
           <div className=" text-center">
-            <h1 className=" text-gray-600">Powered By Devknus</h1>
+            <h1 className=" text-gray-600">Powered By AbyssiniaBlog</h1>
           </div>
         </DialogBody>
       </Dialog>

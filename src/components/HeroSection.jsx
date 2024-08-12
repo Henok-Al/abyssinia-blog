@@ -18,12 +18,12 @@ function HeroSection() {
           <div className="text-center">
             <div className="mb-2">
               {/* Image */}
-              <div className="flex justify-center w-14 h-14">
+              {/* <div className="flex justify-center w-14 h-14">
                 <img
                   src="https://cdn-icons-png.flaticon.com/128/17072/17072589.png"
                   alt="AbyssiniaBlog Logo"
                 />
-              </div>
+              </div> */}
 
               {/* Title */}
               <h1 className={`text-3xl font-bold text-${textColor}`}>

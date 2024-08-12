@@ -4,7 +4,7 @@ import myContext from "../../context/data/myContext";
 import { Button } from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
 
-//get all blogs
+// Get all blogs
 function Dashboard() {
   const context = useContext(myContext);
   const { mode, getAllBlog, deleteBlogs } = context;
@@ -20,13 +20,14 @@ function Dashboard() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
     <Layout>
       <div className="py-10">
         <div className="flex flex-wrap justify-start items-center lg:justify-center gap-2 lg:gap-10 px-4 lg:px-0 mb-8">
           <div className="left">
             <img
-              className=" w-40 h-40  object-cover rounded-full border-2 border-pink-600 p-1"
+              className=" w-40 h-40 object-cover rounded-full border-2 border-pink-600 p-1"
               src={"https://cdn-icons-png.flaticon.com/128/3135/3135715.png"}
               alt="profile"
             />
@@ -49,7 +50,7 @@ function Dashboard() {
               style={{ color: mode === "dark" ? "white" : "black" }}
               className="font-semibold"
             >
-              knupadhyay784@gmail.com
+              henok@gmail.com
             </h2>
             <h2
               style={{ color: mode === "dark" ? "white" : "black" }}
@@ -93,19 +94,20 @@ function Dashboard() {
           </div>
         </div>
 
-        {/* Line  */}
+        {/* Line */}
         <hr
-          className={`border-2
-                 ${mode === "dark" ? "border-gray-300" : "border-gray-400"}`}
+          className={`border-2 ${
+            mode === "dark" ? "border-gray-300" : "border-gray-400"
+          }`}
         />
 
-        {/* Table  */}
+        {/* Table */}
         <div className="">
-          <div className=" container mx-auto px-4 max-w-7xl my-5">
+          <div className="container mx-auto px-4 max-w-7xl my-5">
             <div className="relative overflow-x-auto shadow-md sm:rounded-xl">
-              {/* table  */}
+              {/* table */}
               <table className="w-full border-2 border-white shadow-md text-sm text-left text-gray-500 dark:text-gray-400">
-                {/* thead  */}
+                {/* thead */}
                 <thead
                   style={{
                     background: mode === "dark" ? "white" : "rgb(30, 41, 59)",
@@ -170,23 +172,22 @@ function Dashboard() {
                   </tr>
                 </thead>
 
-                {/* tbody  */}
+                {/* tbody */}
                 {getAllBlog.length > 0 ? (
                   <>
-                    {" "}
                     {getAllBlog.map((item, index) => {
                       console.log(item);
                       const { thumbnail, date, id } = item;
                       return (
                         <tbody key={index}>
                           <tr
-                            className=" border-b-2"
+                            className="border-b-2"
                             style={{
                               background:
                                 mode === "dark" ? "rgb(30, 41, 59)" : "white",
                             }}
                           >
-                            {/* S.No   */}
+                            {/* S.No */}
                             <td
                               style={{
                                 color: mode === "dark" ? "white" : "black",
@@ -196,7 +197,7 @@ function Dashboard() {
                               {index + 1}.
                             </td>
 
-                            {/* Blog Thumbnail  */}
+                            {/* Blog Thumbnail */}
                             <th
                               style={{
                                 color: mode === "dark" ? "white" : "black",
@@ -204,7 +205,7 @@ function Dashboard() {
                               scope="row"
                               className="px-6 py-4 font-medium "
                             >
-                              {/* thumbnail  */}
+                              {/* thumbnail */}
                               <img
                                 className="w-16 rounded-lg"
                                 src={thumbnail}
@@ -212,7 +213,7 @@ function Dashboard() {
                               />
                             </th>
 
-                            {/* Blog Title  */}
+                            {/* Blog Title */}
                             <td
                               style={{
                                 color: mode === "dark" ? "white" : "black",
@@ -222,7 +223,7 @@ function Dashboard() {
                               {item.blogs.title}
                             </td>
 
-                            {/* Blog Category  */}
+                            {/* Blog Category */}
                             <td
                               style={{
                                 color: mode === "dark" ? "white" : "black",
@@ -232,7 +233,7 @@ function Dashboard() {
                               {item.blogs.category}
                             </td>
 
-                            {/* Blog Date  */}
+                            {/* Blog Date */}
                             <td
                               style={{
                                 color: mode === "dark" ? "white" : "black",
@@ -242,26 +243,35 @@ function Dashboard() {
                               {date}
                             </td>
 
-                            {/* Delete Blog  */}
+                            {/* Action Buttons */}
                             <td
-                              onClick={() => deleteBlogs(id)}
+                              className="px-6 py-4 flex gap-2"
                               style={{
                                 color: mode === "dark" ? "white" : "black",
                               }}
-                              className="px-6 py-4"
                             >
-                              <button className=" px-4 py-1 rounded-lg text-white font-bold bg-red-500">
+                              {/* Edit Blog */}
+                              <button
+                                onClick={() => navigate(`/editblog/${id}`)}
+                                className="px-4 py-1 rounded-lg text-white font-bold bg-blue-500"
+                              >
+                                Edit
+                              </button>
+                              {/* Delete Blog */}
+                              <button
+                                onClick={() => deleteBlogs(id)}
+                                className="px-4 py-1 rounded-lg text-white font-bold bg-red-500"
+                              >
                                 Delete
                               </button>
                             </td>
                           </tr>
                         </tbody>
                       );
-                    })}{" "}
+                    })}
                   </>
                 ) : (
                   <>
-                    {" "}
                     <h1>Not Found</h1>
                   </>
                 )}

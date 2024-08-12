@@ -4,31 +4,38 @@ import myContext from "../context/data/myContext";
 function Footer() {
   const context = useContext(myContext);
   const { mode } = context;
+
   return (
     <footer
       className="body-font"
-      style={{ background: mode === "dark" ? "rgb(30, 41, 59)" : "#ffffff" }}
+      style={{ background: mode === "dark" ? "rgb(30, 41, 59)" : "#FFEDD7" }}
     >
-      {/* Left Content  */}
-      <div className="container px-5 py-3 mx-auto flex items-center sm:flex-row flex-col">
-        {/* Blog Logo  */}
+      <div className="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
+        {/* Blog Logo */}
         <div className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-          {/* logo  */}
-          {/* <img
-            className="w-10"
-            src="https://cdn-icons-png.flaticon.com/128/3685/3685253.png"
-            alt="logo"
-          /> */}
-          {/* logo text  */}
-          <span className="ml-3 text-xl text-white">AbyssiniaBlog</span>
+          {/* Logo text */}
+          <a href="/" className="flex items-center space-x-2">
+            <span
+              className="text-2xl font-bold "
+              style={{ color: mode === "dark" ? "white" : "black" }}
+            >
+              Abyssinia<span className="text-orange-500">Blog</span>
+            </span>
+          </a>
         </div>
 
-        {/* items  */}
-        <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+        {/* Footer Text */}
+        <p
+          className={`text-sm sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4 ${
+            mode === "dark" ? "text-gray-400" : "text-gray-600"
+          }`}
+        >
           © 2023 AbyssiniaBlog —
           <a
             href="https://twitter.com/knyttneve"
-            className="text-gray-600 ml-1"
+            className={`ml-1 ${
+              mode === "dark" ? "text-gray-300" : "text-gray-800"
+            }`}
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -36,10 +43,13 @@ function Footer() {
           </a>
         </p>
 
-        {/* Right item  */}
+        {/* Social Icons */}
         <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-          {/* Icon 1  */}
-          <a className="text-gray-500">
+          <a
+            className={`text-gray-500 hover:text-gray-400 ${
+              mode === "dark" ? "text-gray-300" : "text-gray-700"
+            }`}
+          >
             <svg
               fill="currentColor"
               strokeLinecap="round"
@@ -52,8 +62,11 @@ function Footer() {
             </svg>
           </a>
 
-          {/* Icon 2  */}
-          <a className="ml-3 text-gray-500">
+          <a
+            className={`ml-3 text-gray-500 hover:text-gray-400 ${
+              mode === "dark" ? "text-gray-300" : "text-gray-700"
+            }`}
+          >
             <svg
               fill="currentColor"
               strokeLinecap="round"
@@ -66,8 +79,11 @@ function Footer() {
             </svg>
           </a>
 
-          {/* Icon 3  */}
-          <a className="ml-3 text-gray-500">
+          <a
+            className={`ml-3 text-gray-500 hover:text-gray-400 ${
+              mode === "dark" ? "text-gray-300" : "text-gray-700"
+            }`}
+          >
             <svg
               fill="none"
               stroke="currentColor"
@@ -82,8 +98,11 @@ function Footer() {
             </svg>
           </a>
 
-          {/* Icon 4  */}
-          <a className="ml-3 text-gray-500">
+          <a
+            className={`ml-3 text-gray-500 hover:text-gray-400 ${
+              mode === "dark" ? "text-gray-300" : "text-gray-700"
+            }`}
+          >
             <svg
               fill="currentColor"
               stroke="currentColor"
