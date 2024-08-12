@@ -1,8 +1,32 @@
-# React + Vite
+# AbyssiniaBlog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AbyssiniaBlog is a fast and responsive blog application built with ReactJS, Vite, TailwindCSS, and Firebase. It supports full CRUD operations, admin authentication, blog search, light/dark mode, and a commenting system.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **CRUD Operations**: Admins can create, update, and delete blog posts.
+- **Authentication**: Secure login for admin users.
+- **Search**: Search for blogs by keywords.
+- **Themes**: Toggle between light and dark modes.
+- **Comments**: Users can comment on blog posts.
+
+## Tech Stack
+
+- **Frontend**: ReactJS, Vite, TailwindCSS
+- **Backend & Hosting**: Firebase (Auth, Firestore, Hosting)
+
+## Getting Started
+
+1. **Clone the repository**: `git clone https://github.com/Henok-Al/abyssinia-blog.git`
+2. **Install dependencies**: `npm install`
+3. **Set up Firebase**: Add Firebase config to `.env`.
+4. **Run the app**: `npm run dev`
+
+## Deployment
+
+1. **Build the app**: `npm run build`
+2. **Deploy to Firebase**: `firebase deploy`
+
+## License
+
+This project is licensed under the MIT License.
